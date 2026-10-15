@@ -1,0 +1,7 @@
+MEMORY.md
+.isaac/
+.env
+.databricks/
+bin/
+obj/
+.tmp/
