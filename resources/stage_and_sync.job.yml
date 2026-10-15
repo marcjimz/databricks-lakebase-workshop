@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    # Attendee: stages your copy of the data and syncs it into Lakebase (notebook sections 0-2).
+    # Safe to re-run; the rest of the notebook is run interactively during the exercises.
+    stage_and_sync:
+      name: lakebase-workshop-stage-and-sync
+      tasks:
+        - task_key: stage_and_sync
+          notebook_task:
+            notebook_path: ../notebooks/lakebase_search_workshop.py
+            base_parameters:
+              catalog: ${var.catalog}
+              shared_schema: ${var.shared_schema}
+              lakebase_project: ${var.lakebase_project}
+              branch: production
+              stop_after: sync

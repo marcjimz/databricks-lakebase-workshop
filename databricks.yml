@@ -1,0 +1,37 @@
+bundle:
+  name: lakebase_workshop
+
+variables:
+  catalog:
+    description: Unity Catalog catalog holding the shared data and each attendee's lakebase_<user> schema
+  shared_schema:
+    description: Schema with the shared synthetic support articles
+    default: lakebase_workshop_shared
+  lakebase_project:
+    description: Your Lakebase project id (same value as LAKEBASE_PROJECT_ID in .env)
+  embedding_endpoint:
+    description: Embedding model used for the precomputed article embeddings
+    default: databricks-gte-large-en
+
+include:
+  - resources/*.yml
+
+targets:
+  # Development and testing for workshop authors.
+  databricks_dev:
+    default: true
+    mode: development
+    workspace:
+      host: https://fevm-real-time-mode-demo.cloud.databricks.com
+    variables:
+      catalog: real_time_mode_demo_catalog
+      lakebase_project: lakebase-workshop-test
+
+  # Attendees and instructors: replace the <...> values with your workspace, catalog and project.
+  lakebase_workshop:
+    mode: development
+    workspace:
+      host: <HOSTNAME>
+    variables:
+      catalog: <CATALOG>
+      lakebase_project: <LAKEBASE_PROJECT_ID>

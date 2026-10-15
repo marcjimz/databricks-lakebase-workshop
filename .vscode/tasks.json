@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Lakebase: Migrate",
+      "detail": "Apply src/LakebaseWorkshop.Migrations/Migrations/*.sql to the branch in .env",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/LakebaseWorkshop.Migrations"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Lakebase: Test",
+      "detail": "Run all tests against the branch in .env",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

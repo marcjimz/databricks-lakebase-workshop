@@ -1,0 +1,14 @@
+resources:
+  jobs:
+    # Instructor: run once per workspace before the workshop.
+    generate_shared_data:
+      name: lakebase-workshop-generate-shared-data
+      tasks:
+        - task_key: generate_shared_data
+          notebook_task:
+            notebook_path: ../docs/instructor/generate_shared_data.py
+            base_parameters:
+              catalog: ${var.catalog}
+              shared_schema: ${var.shared_schema}
+              embedding_endpoint: ${var.embedding_endpoint}
+              attendee_group: ""
