@@ -1,0 +1,3 @@
+{
+  "lakebaseSync.migrationPath": "src/LakebaseWorkshop.Migrations/Migrations"
+}

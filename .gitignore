@@ -5,3 +5,4 @@ MEMORY.md
 bin/
 obj/
 .tmp/
+__pycache__/
